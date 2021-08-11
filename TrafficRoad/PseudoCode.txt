@@ -1,0 +1,104 @@
+Pseudo Code
+일시 : 2021. 08.10 09:10~
+참석자 : 이록경, 황준식
+
+1. 변수 정의
+  - 교차로의 방향은 상수로 하되, 
+     DIR_EAST = 0, 
+     DIR_WEST = 1, 
+     DIR_SOUTH = 2, 
+     DIR_NORTH = 3 로 정한다.
+  - 신호등 표시는 상수로 하되, 
+     LIGHT_RED = 101, 
+     LIGHT_YELLOW = 102, 
+     LIGHT_GREEN = 103 로 한다.
+  - 교차로 방향 수는 DIR_CNT_CROSS_ROAD = 4
+
+  - 교통 진행방향 변수는 
+     dirStreet[DIR_CNT_CROSS_ROAD]  
+  - 교차로별 차량수는 변수로 하되, 
+     cntCar[DIR_CNT_CROSS_ROAD]
+  - 교통 진행 시간은
+     rstTime으로 정한다.
+     
+  - 프로그램 시작시, 수직 방향 진행이므로, 
+    Timer.enable = true;
+
+    dir_Street[DIR_EAST] = LIGHT_RED;
+    dir_Street[DIR_WEST] = LIGHT_RED; 
+    dir_Street[DIR_SOUTH] = LIGHT_GREEN;  
+    dir_Street[DIR_NORTH] = LIGHT_GREEN;
+    cntCar[DIR_EAST] = 0;
+    cntCar[DIR_WEST] = 0;
+    cntCar[DIR_SOUTH] = 0;
+    cntCar[DIR_NORTH] = 0;
+
+    rstTime = rstTime();
+
+  - 교통시간 결정 함수   
+    int rstTime()
+    {
+         int[] cmpTime = new int[2];
+
+         if(dir_Street[DIR_EAST] == LIGHT_GREEN && dir_Street[DIR_WEST] == LIGHT_GREEN)
+         {
+	cmpTime[0] = cntCar[DIR_EAST];
+              cmpTime[1] = cntCar[DIR_WEST];
+         }
+         else if(dir_Street[DIR_SOUTH] == LIGHT_GREEN && dir_Street[DIR_NORTH] == LIGHT_GREEN)
+         {
+	cmpTime[0] = cntCar[DIR_SOUTH];
+	cmpTime[1] = cntCar[DIR_NORTH];
+         }
+         rstTime = rk_ResultValue(cmpTime, 2, 1);
+         
+         if(rstTime < 10)
+	rstTime = 10;
+         else if(rstTime > 30)
+	rstTime = 30;
+
+  -  수평방향 진행 시에는
+    dir_Street[DIR_EAST] = LIGHT_GREEN;  
+    dir_Street[DIR_WEST] = LIGHT_GREEN;
+    dir_Street[DIR_SOUTH] = LIGHT_RED; 
+    dir_Street[DIR_NORTH] = LIGHT_RED;
+
+
+    
+  - 값 결정 함수    
+    int rk_ResultValue(int[] cmpValue, int cmpCnt, int nFlag)
+    {
+         if(cmpValue.lengh != cmpCnt)
+         {
+	return 0;
+         }
+         else
+         {
+	switch(nFlag)
+	{
+	     case 0 : // return Min Value
+		break;
+	     case 1 : // return Max Value
+		break;
+	     case 2 : // return Sum Value
+		break;
+	     case 3 : // return Average Value
+		break;
+	     case 4 : // return Average Value for exception Min and Max
+		break;
+	     case 5 : // return 표준편차 Value
+		break;
+	     case 6 : // return 중간값 Value
+		break;
+	}
+         }
+    }
+
+
+
+
+
+
+
+
+
