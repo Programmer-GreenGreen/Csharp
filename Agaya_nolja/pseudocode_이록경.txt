@@ -1,0 +1,52 @@
+1. Create ten random number(Two digits) and 
+Arithmetic Symbols(+,-,*,/) Combination question
+
+START
+
+int[] randnum = new randnum[]; //2자리랜덤숫자 저장할 배열  
+int result=0; //문제의 정답 변수 선언
+int cnt=0; //사용자가 시도한 횟수
+int success=10; //정답 수
+
+string[] Symbol = {"+","-","*","/"} //사칙연산 배열
+
+
+for(i to 10 i는 1씩 증가){ //2자리 숫자 10개 난수 발생 반복문
+100>randnum[i]>0 
+end for}
+
+while(success=1){ //사용자가 답을 맞출때까지 반복
+Randnum{
+10>intorandA>=0
+10>intorandB>=0}
+
+
+int usernum; //사용자가 입력할 값
+switch(Symbol) {
+    case '+' : 
+    result=randnum[intorandA]+randnum[intorandB];
+    Console.wirte("{0}+{1}=?",intorandA,intorandB);
+    if (result==usernum) THEN(cnt++ success-- Console.wirte("GOOD JOB! success!!"))
+    else (cnt++ Console.wirte("Try again!"))
+    case '-' :
+    result=randnum[intorandA]-randnum[intorandB];
+    Console.wirte("{0}-{1}=?",intorandA,intorandB);
+    if (result==usernum) THEN(cnt++ success-- Console.wirte("GOOD JOB! success!!"))
+    else (cnt++ Console.wirte("Try again!"))
+    case '*' :
+    result=randnum[intorandA]*randnum[intorandB];
+    if (result==usernum) THEN(cnt++ success-- Console.wirte("GOOD JOB! success!!"))
+    else (cnt++ Console.wirte("Try again!"))
+    else (cnt++)
+    case '/' :
+    result=randnum[intorandA]/randnum[intorandB];
+    if(값의 소수점이 2자리가 넘어가면)
+    {Console.wirte("{0}/{1}=? (두번째 소수점까지만 표시하시오)",intorandA,intorandB);
+    result.소수점2자리}
+    if(intorandA or intorandB ==0) THEN(result=0; 출력 "답은 0입니다, 0을 입력하세요")
+    if (result==usernum) THEN(cnt++ success-- Console.wirte("GOOD JOB! success!!"))
+    else (cnt++ Console.wirte("Try again!"))
+    }
+END WHILE
+END
+
